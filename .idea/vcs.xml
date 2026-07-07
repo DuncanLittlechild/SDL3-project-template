@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/aom" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/dav1d" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/jpeg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libavif" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libjxl" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libjxl/testdata" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libjxl/third_party/brotli" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libjxl/third_party/googletest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libjxl/third_party/highway" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libjxl/third_party/lcms" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libjxl/third_party/libpng" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libjxl/third_party/sjpeg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libjxl/third_party/skcms" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libjxl/third_party/zlib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libpng" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libtiff" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/libwebp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_image-3.4.4/external/zlib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_ttf-3.2.2/external/freetype" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_ttf-3.2.2/external/freetype/subprojects/dlg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_ttf-3.2.2/external/harfbuzz" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_ttf-3.2.2/external/plutosvg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_ttf-3.2.2/external/plutosvg/plutovg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/SDL3_ttf-3.2.2/external/plutovg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/stb" vcs="Git" />
+  </component>
+</project>

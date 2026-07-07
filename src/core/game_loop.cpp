@@ -3,7 +3,7 @@
 #define SDL_MAIN_USE_CALLBACKS 1
 #include <SDL3/SDL_main.h>
 #include <iostream>
-#include <unordered_map>
+#include <fstream>
 #include "imgui.h"
 #include "imgui_impl_sdl3.h"
 #include "imgui_impl_sdlrenderer3.h"
@@ -11,10 +11,12 @@
 // Helps one to find out if a button was recently pressed
 // One of these structs needs to be allocated for each button tracked thus
 struct ButtonTimer {
+	static constexpr char ACTIVE{0x01};
+	static constexpr char RECENTLYPRESSED{0x02};
+
 	float recently {0.0f};
 	float timeSincePressed {0.0f};
-	bool active {false};
-	bool recentlyPressed {false};
+	char flags {};
 
 	ButtonTimer() = default;
 	explicit ButtonTimer(float g_recently = 0.1f)
@@ -23,17 +25,15 @@ struct ButtonTimer {
 
 	void Press () {
 		timeSincePressed = 0.0f;
-		active = true;
-		recentlyPressed = true;
+		flags = ACTIVE | RECENTLYPRESSED;
 	}
 	// Needs to be called at the start of the update loop
 	void Update(float deltaTime) {
-		if (active && (timeSincePressed < recently)) {
+		if ((flags & ACTIVE) && (timeSincePressed < recently)) {
 			timeSincePressed += deltaTime;
 		}
 		else {
-			recentlyPressed = false;
-			active = false;
+			flags = 0;
 		}
 	}
 };
