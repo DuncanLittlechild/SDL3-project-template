@@ -4,13 +4,17 @@ set(CMAKE_CXX_STANDARD 23)
 # Toggle to set whether this is a prod build (ON) or debug (OFF)
 set(PRODUCTION_BUILD OFF CACHE BOOL "Make this a production build" FORCE)
 
-# Statically links the c and c++ runtime libraries
+# Statically links the c and c++ runtime libraries. This is needed for game development, if the binaries
+# are to be distributed on windows, as dynamically linking the c and c++ runtime libraries is sketchy and
+# very version dependent on windows.
 # this way of doing this only works on g++, MSCV or clang emulating MSVC doesn't really work for this
 add_link_options(-static)
 
 # -- Set Library options --
 # Forces SDL3_ttf to use the vendored versions of its libraries found in its./external folder instead of system ones
 # Note that this only works if you remembered to clone the external dependencies, in this case the vendored libraries
+# This may be unnecessary, especially if you have freetype installed on your system somewhere it can be easily located,
+# eg if your system is linux and not windows. 
 set(SDLTTF_VENDORED ON CACHE BOOL "Forces SDL3_ttf to use the vendored versions of its libraries" FORCE)
 # Disables the Harfbuzz external dependency. This is by far the largest dependency, and only needed for non-latin fonts
 # with unusual glyph formation (eg, arabic, where letters look different depending on where they are in the word) or
@@ -18,7 +22,8 @@ set(SDLTTF_VENDORED ON CACHE BOOL "Forces SDL3_ttf to use the vendored versions 
 set(SDLTTF_HARFBUZZ OFF CACHE BOOL "Disables the Harfbuzz external dependency" FORCE)
 
 
-# Forces SDL3_image to use the vendored versions of its libraries found in its./external folder instead of system ones
+# Forces SDL3_image to use the vendored versions of its libraries found in its./external folder instead of system ones.
+# Same as before, only works if you have actually downloaded the libraries
 set(SDLIMAGE_VENDORED ON CACHE BOOL "Forces SDL3_image to use the vendored versions of its libraries" FORCE)
 # The following lines disable the largest external dependencies of SDL_image, while at the same time disabling it's
 # ability to process the relevat image types. What iamge types are disabled is obvious, so comment out if necessary.
