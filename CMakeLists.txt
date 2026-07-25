@@ -36,28 +36,12 @@ set(SDLTTF_VENDORED ON CACHE BOOL "Forces SDL3_ttf to use the vendored versions 
 # right to left font rendering.
 set(SDLTTF_HARFBUZZ OFF CACHE BOOL "Disables the Harfbuzz external dependency" FORCE)
 
-
-# Forces SDL3_image to use the vendored versions of its libraries found in its./external folder instead of system ones.
-# Same as before, only works if you have actually downloaded the libraries
-set(SDLIMAGE_VENDORED ON CACHE BOOL "Forces SDL3_image to use the vendored versions of its libraries" FORCE)
-# The following lines disable the largest external dependencies of SDL_image, while at the same time disabling it's
-# ability to process the relevat image types. What iamge types are disabled is obvious, so comment out if necessary.
-set(SDLIMAGE_JXL OFF CACHE BOOL "Disable support for JPEG-XL image format in SDL3_image" FORCE)
-set(SDLIMAGE_TIF OFF CACHE BOOL "Disable support for TIF image format in SDL3_image" FORCE)
-set(SDLIMAGE_WEBP OFF CACHE BOOL "Disable support for WEBP image format in SDL3_image" FORCE)
-set(SDLIMAGE_SVG OFF CACHE BOOL "Disable support for SVG image format in SDL3_image" FORCE)
-# THis option also disables the dependency on the small assembler NASM
-# This dependency is only for initial compilation, and NASM isn't hard to get, but its here regardless.
-set(SDLIMAGE_AVIF OFF CACHE BOOL "Disable support for AVIF image format in SDL3_image" FORCE)
-
-
 ######################
 ##### LIBRARIES ######
 ######################
 
 # -- Add Libraries --
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party/SDL3-3.4.12)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party/SDL3_image-3.4.4)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party/SDL3_ttf-3.2.2)
 
 # AS imgui has no cmake, it must be compiled and statically linked manually
@@ -147,7 +131,6 @@ endif()
 # -- Final linking step --
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
         SDL3::SDL3
-        SDL3_image::SDL3_image
         SDL3_ttf::SDL3_ttf
         imgui_lib
         stb_header
