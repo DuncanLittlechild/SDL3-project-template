@@ -16,7 +16,7 @@ if(MSVC)
        set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
        add_compile_options(/arch:AVX2) # Ensures SIMD optimizations. Remove if triggers errors on apple device
 else()
-       add_link_options(-static-libstc++ -static-libgcc)
+       add_link_options(-static-libstdc++ -static-libgcc)
        add_compile_options(-mavx2 -mfma) # Ensures SIMD optimizations. Remove if triggers errors on apple device
 endif()
 
@@ -34,6 +34,8 @@ set(SDLTTF_VENDORED ON CACHE BOOL "Forces SDL3_ttf to use the vendored versions 
 # Disables the Harfbuzz external dependency. This is by far the largest dependency, and only needed for non-latin fonts
 # with unusual glyph formation (eg, arabic, where letters look different depending on where they are in the word) or
 # right to left font rendering.
+set(SDLTTF_PLUTOSVG OFF CACHE BOOL "Disables the plutosvg external dependency" FORCE)
+set(SDLTTF_PLUTOVG OFF CACHE BOOL "Disables the plutovg external dependency" FORCE)
 set(SDLTTF_HARFBUZZ OFF CACHE BOOL "Disables the Harfbuzz external dependency" FORCE)
 
 ######################
@@ -43,6 +45,7 @@ set(SDLTTF_HARFBUZZ OFF CACHE BOOL "Disables the Harfbuzz external dependency" F
 # -- Add Libraries --
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party/SDL3-3.4.12)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party/SDL3_ttf-3.2.2)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party/stb_image)
 
 # AS imgui has no cmake, it must be compiled and statically linked manually
 set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/third_party/imgui-1.92.8")
@@ -79,7 +82,7 @@ add_executable(${CMAKE_PROJECT_NAME}
 
 # -- Include headers --
 #Path for include headers
-target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include/")
+target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src/")
 
 
 ####################################
@@ -134,4 +137,5 @@ target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
         SDL3_ttf::SDL3_ttf
         imgui_lib
         stb_header
+        stb_image
 )
