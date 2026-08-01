@@ -8,7 +8,7 @@ struct AppData {
 	SDL_Renderer *renderer{nullptr};
 	SDL_Window *window {nullptr};
 
-	int lastTime {0};
+	Uint64 lastTime {0};
 	float deltaTime {0.0f};
 
 };
